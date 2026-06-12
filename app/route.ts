@@ -202,25 +202,29 @@
     }
 
     /* ── Scroll reveal ── */
-    .sr {
+    .sr, .sr-left, .sr-right {
+      opacity: 1;
+      transform: none;
+    }
+    .js-sr .sr {
       opacity: 0;
       transform: translateY(32px);
       transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
                   transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .sr-left {
+    .js-sr .sr-left {
       opacity: 0;
       transform: translateX(-40px);
       transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
                   transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .sr-right {
+    .js-sr .sr-right {
       opacity: 0;
       transform: translateX(40px);
       transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
                   transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .sr.visible, .sr-left.visible, .sr-right.visible {
+    .js-sr .sr.visible, .js-sr .sr-left.visible, .js-sr .sr-right.visible {
       opacity: 1;
       transform: none;
     }
@@ -986,7 +990,8 @@
       document.getElementById('form-success').classList.remove('hidden');
     }
 
-    // ── Scroll reveal ──
+    // ── Scroll reveal (progressive enhancement) ──
+    document.documentElement.classList.add('js-sr');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
