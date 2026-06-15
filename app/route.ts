@@ -273,6 +273,18 @@
 
       /* Form inputs: larger tap target */
       .form-input { padding: 14px 0; font-size: 1rem; }
+
+      /* Hero image: rotate 90° so landscape photo reads correctly while scrolling vertically */
+      .hero-bg-img {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 100vh !important;
+        height: 100vw !important;
+        transform: translate(-50%, -50%) rotate(90deg) !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+      }
     }
 
     /* Disable stuck hover states on touch devices */
@@ -298,7 +310,7 @@
 <body class="font-sans text-charcoal">
 
   <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
-  <header id="top" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,248,243,0.65); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(255,255,255,0.45); box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 -0.5px 0 rgba(161,98,7,0.15);">
+  <header id="top" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,248,243,0.92); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(255,255,255,0.6); box-shadow: 0 4px 32px rgba(0,0,0,0.08), inset 0 -0.5px 0 rgba(161,98,7,0.2);">
     <div class="max-w-7xl mx-auto px-8 flex items-center justify-between" style="height: 72px;">
       <!-- Left nav -->
       <nav class="hidden md:flex items-center gap-10">
@@ -308,7 +320,7 @@
 
       <!-- Logo -->
       <a href="#top" class="flex-shrink-0 mx-auto md:mx-0">
-        <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto;" />
+        <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto; filter: brightness(1.15) contrast(1.1) drop-shadow(0 1px 6px rgba(161,98,7,0.22));" />
       </a>
 
       <!-- Right nav -->
@@ -342,10 +354,10 @@
   <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center;">
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
-      <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true"
+      <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
            style="width:100%; height:100%; object-fit:cover; object-position: center 30%;" />
       <!-- Dark overlay -->
-      <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
+      <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.52) 0%, rgba(26,26,26,0.28) 60%, rgba(161,98,7,0.06) 100%);"></div>
       <!-- Radial glow -->
       <div style="position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(161,98,7,0.07) 0%, transparent 70%);"></div>
     </div>
