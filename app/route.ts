@@ -239,51 +239,52 @@
     html, body { overflow-x: hidden; }
 
     @media (max-width: 767px) {
-      /* Tighten all px-8 sections down to 1rem on phones */
-      .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
-      #collection { padding-left: 1rem; padding-right: 1rem; }
+      /* ── Spacing & layout ── */
+      .px-8 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+      #collection { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .section-py { padding-top: 56px !important; padding-bottom: 56px !important; }
+      .intro-strip { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+      .site-footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 
-      /* Hero heading: scale down on narrow screens */
-      .hero-h1 { font-size: clamp(2.1rem, 9vw, 5.5rem) !important; }
+      /* ── Hero image: restore portrait orientation — chains show at top naturally ── */
+      .hero-bg-img {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        object-fit: cover !important;
+        object-position: center 30% !important;
+      }
 
-      /* Hero sub-text: let it use full available width */
-      .hero-sub { max-width: 100% !important; }
+      /* ── Hero text ── */
+      .hero-h1 { font-size: clamp(2.1rem, 9vw, 4rem) !important; line-height: 1.08 !important; }
+      .hero-sub { max-width: 100% !important; font-size: 0.87rem !important; }
 
-      /* Testimonial card width: never wider than viewport */
-      .t-card { width: min(300px, 86vw); }
+      /* ── Hero CTA buttons: full-width stacked for easy tapping ── */
+      .hero-btns { flex-direction: column; gap: 0.75rem; }
+      .hero-btns a { text-align: center; display: block; width: 100%; box-sizing: border-box; }
 
-      /* Reduce over-large vertical section padding */
-      .section-py { padding-top: 64px !important; padding-bottom: 64px !important; }
+      /* ── Nav logo: slightly smaller on mobile ── */
+      header .flex-shrink-0 img { height: 44px !important; }
 
-      /* Footer: reduce side padding */
-      .site-footer { padding-left: 1rem !important; padding-right: 1rem !important; }
+      /* ── About section: hide decorative accent line that overflows on mobile ── */
+      .about-grid { gap: 2rem !important; }
+      .about-accent-line { display: none !important; }
 
-      /* About: reduce the large column gap when stacked */
-      .about-grid { gap: 2.5rem !important; }
+      /* ── Testimonials ── */
+      .t-card { width: min(300px, 88vw); padding: 24px 20px; }
 
-      /* Hero buttons: full-width on phones for easier tapping */
-      .hero-btns { flex-direction: column; }
-      .hero-btns a { text-align: center; }
+      /* ── Service cards ── */
+      .service-card { padding: 28px 20px !important; }
 
-      /* Intro strip quote: adjust padding */
-      .intro-strip { padding-top: 3rem !important; padding-bottom: 3rem !important; }
-
-      /* Service cards: reduce inner padding on phones */
-      .service-card { padding: 28px 18px !important; }
-
-      /* Form inputs: larger tap target */
+      /* ── Form inputs: larger tap targets ── */
       .form-input { padding: 14px 0; font-size: 1rem; }
 
-      /* Hero image: rotate 90° so landscape photo reads correctly while scrolling vertically */
-      .hero-bg-img {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        width: 100vh !important;
-        height: 100vw !important;
-        transform: translate(-50%, -50%) rotate(90deg) !important;
-        object-fit: cover !important;
-        object-position: center center !important;
+      /* ── Featured piece image: slightly less tall on small phones ── */
+      @media (max-height: 700px) {
+        .sr-right[style*="aspect-ratio: 1/1"] { aspect-ratio: 4/3 !important; }
       }
     }
 
@@ -357,7 +358,7 @@
       <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
            style="width:100%; height:100%; object-fit:cover; object-position: center 30%;" />
       <!-- Dark overlay -->
-      <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.52) 0%, rgba(26,26,26,0.28) 60%, rgba(161,98,7,0.06) 100%);"></div>
+      <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
       <!-- Radial glow -->
       <div style="position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(161,98,7,0.07) 0%, transparent 70%);"></div>
     </div>
@@ -484,7 +485,7 @@
             <div style="position:absolute; inset:0; background: linear-gradient(to bottom, transparent 60%, rgba(161,98,7,0.06)); pointer-events:none;"></div>
           </div>
           <!-- Gold accent line -->
-          <div style="position:absolute; top: 24px; left: -16px; width: 3px; height: 120px; background: linear-gradient(to bottom, #A16207, transparent);"></div>
+          <div class="about-accent-line" style="position:absolute; top: 24px; left: -16px; width: 3px; height: 120px; background: linear-gradient(to bottom, #A16207, transparent);"></div>
         </div>
 
         <!-- Text side -->
