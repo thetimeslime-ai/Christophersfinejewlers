@@ -184,9 +184,9 @@
       100% { transform: translateY(-50%); }
     }
     .t-track { display: flex; flex-direction: column; gap: 24px; padding-bottom: 24px; }
-    .t-col-1 .t-track { animation: scrollUp 15s linear infinite; }
-    .t-col-2 .t-track { animation: scrollUp 19s linear infinite; }
-    .t-col-3 .t-track { animation: scrollUp 17s linear infinite; }
+    .t-col-1 .t-track { animation: scrollUp 45s linear infinite; }
+    .t-col-2 .t-track { animation: scrollUp 55s linear infinite; }
+    .t-col-3 .t-track { animation: scrollUp 50s linear infinite; }
     .t-card {
       padding: 32px;
       background: #ffffff;
