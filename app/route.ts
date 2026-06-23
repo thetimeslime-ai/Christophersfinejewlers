@@ -315,7 +315,7 @@
     <div class="max-w-7xl mx-auto px-8 flex items-center justify-between" style="height: 72px;">
       <!-- Left nav -->
       <nav class="hidden md:flex items-center gap-10">
-        <a href="#collection" class="nav-link">Collection</a>
+        <a href="/collection" class="nav-link">Collection</a>
         <a href="#about" class="nav-link">Our Story</a>
       </nav>
 
@@ -343,7 +343,7 @@
 
     <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true">
-      <a href="#collection" class="nav-link" onclick="toggleMenu()">Collection</a>
+      <a href="/collection" class="nav-link" onclick="toggleMenu()">Collection</a>
       <a href="#about" class="nav-link" onclick="toggleMenu()">Our Story</a>
       <a href="#services" class="nav-link" onclick="toggleMenu()">Services</a>
       <a href="#testimonials" class="nav-link" onclick="toggleMenu()">Reviews</a>
@@ -375,7 +375,7 @@
           Heirloom-quality fine jewelry — designed with intention, crafted with mastery, and worn for a lifetime.
         </p>
         <div class="hero-btns fade-up delay-3 flex flex-wrap gap-4">
-          <a href="#collection" class="btn-gold">View Collection</a>
+          <a href="/collection" class="btn-gold">View Collection</a>
           <a href="#contact" class="btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.45);" onmouseenter="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';" onmouseleave="this.style.background='transparent'; this.style.color='#fff';">
             Book a Consultation
           </a>
