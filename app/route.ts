@@ -266,8 +266,10 @@
       .hero-btns { flex-direction: column; gap: 0.75rem; }
       .hero-btns a { text-align: center; display: block; width: 100%; box-sizing: border-box; }
 
-      /* ── Nav logo: slightly smaller on mobile ── */
-      header .flex-shrink-0 img { height: 44px !important; }
+      /* ── Nav: smaller height + logo on mobile ── */
+      header .max-w-7xl { height: 52px !important; }
+      .grain { padding-top: 52px !important; }
+      header .flex-shrink-0 img { height: 38px !important; }
 
       /* ── About section: hide decorative accent line that overflows on mobile ── */
       .about-grid { gap: 2rem !important; }
@@ -303,17 +305,6 @@
       .service-card:hover            { transform: none !important; }
     }
 
-    /* Mobile menu slide animation */
-    #mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease;
-    }
-    #mobile-menu.menu-open {
-      max-height: 360px;
-      opacity: 1;
-    }
   </style>
 </head>
 <body class="font-sans text-charcoal">
@@ -339,23 +330,6 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Mobile menu button -->
-      <button class="md:hidden p-2 -mr-2 focus-visible:outline-none" aria-label="Menu" onclick="toggleMenu()">
-        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
-          <line x1="0" y1="1" x2="22" y2="1" stroke="#A16207" stroke-width="1.5"/>
-          <line x1="0" y1="8" x2="22" y2="8" stroke="#A16207" stroke-width="1.5"/>
-          <line x1="0" y1="15" x2="22" y2="15" stroke="#A16207" stroke-width="1.5"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true">
-      <a href="/collection" class="nav-link" onclick="toggleMenu()">Collection</a>
-      <a href="#about" class="nav-link" onclick="toggleMenu()">Our Story</a>
-      <a href="#services" class="nav-link" onclick="toggleMenu()">Services</a>
-      <a href="#testimonials" class="nav-link" onclick="toggleMenu()">Reviews</a>
-      <a href="#contact" class="nav-link" onclick="toggleMenu()">Contact</a>
     </div>
   </header>
 
@@ -364,7 +338,7 @@
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
       <picture style="width:100%; height:100%; display:block;">
-        <source media="(max-width: 767px)" srcset="/product-images/mama anniversary ring.webp" />
+        <source media="(max-width: 767px)" srcset="/product-images/mama%20anniversary%20ring.webp" />
         <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
              style="width:100%; height:100%; object-fit:cover; object-position: center top;" />
       </picture>
@@ -977,27 +951,6 @@
   </footer>
 
   <script>
-    // ── Mobile menu ──
-    const menuEl = document.getElementById('mobile-menu');
-    const menuBtn = document.querySelector('[aria-label="Menu"]');
-
-    function toggleMenu() {
-      const isOpen = menuEl.classList.contains('menu-open');
-      menuEl.classList.toggle('menu-open');
-      menuEl.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-      menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      if (menuEl.classList.contains('menu-open') &&
-          !menuEl.contains(e.target) && !menuBtn.contains(e.target)) {
-        menuEl.classList.remove('menu-open');
-        menuEl.setAttribute('aria-hidden', 'true');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
     // ── Contact form → opens email client with pre-filled inquiry ──
     function handleSubmit(e) {
       e.preventDefault();
