@@ -288,6 +288,14 @@
       }
     }
 
+    /* ── Mobile collection: show/hide extra cards ── */
+    .mobile-show-more-btn { display: none; }
+    @media (max-width: 767px) {
+      .mobile-hidden-card { display: none; }
+      .mobile-hidden-card.card-visible { display: block; }
+      .mobile-show-more-btn { display: block; }
+    }
+
     /* Disable stuck hover states on touch devices */
     @media (hover: none) {
       .product-card:hover            { transform: none !important; }
@@ -355,8 +363,11 @@
   <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center;">
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
-      <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
-           style="width:100%; height:100%; object-fit:cover; object-position: center top;" />
+      <picture style="width:100%; height:100%; display:block;">
+        <source media="(max-width: 767px)" srcset="/product-images/mama anniversary ring.webp" />
+        <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
+             style="width:100%; height:100%; object-fit:cover; object-position: center top;" />
+      </picture>
       <!-- Dark overlay -->
       <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
       <!-- Radial glow -->
@@ -441,7 +452,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="sr sr-d1 product-card group cursor-pointer">
+        <div class="sr sr-d1 product-card group cursor-pointer mobile-hidden-card">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
             <img src="/product-images/Colorful earrings.webp" alt="Opal Earrings" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
@@ -450,7 +461,7 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="sr sr-d2 product-card group cursor-pointer">
+        <div class="sr sr-d2 product-card group cursor-pointer mobile-hidden-card">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
             <img src="/product-images/Blue Ring.webp" alt="Sapphire Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
@@ -459,7 +470,7 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="sr sr-d3 product-card group cursor-pointer">
+        <div class="sr sr-d3 product-card group cursor-pointer mobile-hidden-card">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
             <img src="/product-images/yellow diamond ring.webp" alt="Yellow Diamond Band" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
@@ -467,6 +478,11 @@
           <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Canary Diamond Band</h3>
         </div>
 
+      </div>
+
+      <!-- Mobile-only: reveal remaining cards -->
+      <div class="mobile-show-more-btn text-center mt-10" id="mobile-show-more-btn">
+        <button onclick="showAllCollectionCards()" class="btn-outline">View All 6 Pieces</button>
       </div>
 
       <div class="sr text-center mt-14">
@@ -1017,6 +1033,15 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.sr, .sr-left, .sr-right').forEach(el => revealObserver.observe(el));
+
+    // ── Mobile collection: reveal all cards ──
+    function showAllCollectionCards() {
+      document.querySelectorAll('.mobile-hidden-card').forEach(c => {
+        c.classList.add('card-visible');
+        revealObserver.observe(c);
+      });
+      document.getElementById('mobile-show-more-btn').style.display = 'none';
+    }
   </script>
 </body>
 </html>
