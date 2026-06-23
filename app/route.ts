@@ -246,16 +246,17 @@
       .intro-strip { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .site-footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 
-      /* ── Hero image: restore portrait orientation — chains show at top naturally ── */
+      /* ── Hero image: rotate 90° to fill portrait viewport ── */
       .hero-bg-img {
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        width: 100% !important;
-        height: 100% !important;
-        transform: none !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 100vh !important;
+        height: 100vw !important;
+        max-width: none !important;
+        transform: translate(-50%, -50%) rotate(90deg) !important;
         object-fit: cover !important;
-        object-position: center top !important;
+        object-position: center center !important;
       }
 
       /* ── Hero text ── */
@@ -368,11 +369,6 @@
       </div>
     </div>
 
-    <!-- Scroll cue -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 scroll-indicator">
-      <span class="font-sans text-white/40" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;">Scroll</span>
-      <svg width="1" height="36" viewBox="0 0 1 36"><line x1="0.5" y1="0" x2="0.5" y2="36" stroke="rgba(255,255,255,0.3)" stroke-width="1"/></svg>
-    </div>
   </section>
 
   <!-- ══════════════════════════ INTRO STRIP ════════════════════════════ -->
@@ -454,9 +450,9 @@
 
       </div>
 
-      <!-- Mobile-only: reveal remaining cards -->
+      <!-- Mobile-only: link to full collection page -->
       <div class="mobile-show-more-btn text-center mt-10" id="mobile-show-more-btn">
-        <button onclick="showAllCollectionCards()" class="btn-outline">View All 6 Pieces</button>
+        <a href="/collection" class="btn-outline">View Collection</a>
       </div>
 
       <div class="sr text-center mt-14">
@@ -986,15 +982,6 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.sr, .sr-left, .sr-right').forEach(el => revealObserver.observe(el));
-
-    // ── Mobile collection: reveal all cards ──
-    function showAllCollectionCards() {
-      document.querySelectorAll('.mobile-hidden-card').forEach(c => {
-        c.classList.add('card-visible');
-        revealObserver.observe(c);
-      });
-      document.getElementById('mobile-show-more-btn').style.display = 'none';
-    }
   </script>
 </body>
 </html>
