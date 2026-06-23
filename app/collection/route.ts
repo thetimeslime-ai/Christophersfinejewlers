@@ -254,6 +254,7 @@ const HTML = `<!DOCTYPE html>
 
       <!-- Right nav -->
       <nav class="hidden md:flex items-center gap-10">
+        <a href="/faq" class="nav-link">FAQs</a>
         <a href="/#services" class="nav-link">Services</a>
         <a href="/#testimonials" class="nav-link">Reviews</a>
         <a href="/#contact" class="nav-link">Contact</a>
@@ -273,6 +274,7 @@ const HTML = `<!DOCTYPE html>
     <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true">
       <a href="/" class="nav-link">← Home</a>
       <a href="/collection" class="nav-link" style="color:#A16207;">Collection</a>
+      <a href="/faq" class="nav-link">FAQs</a>
       <a href="/#services" class="nav-link">Services</a>
       <a href="/#testimonials" class="nav-link">Reviews</a>
       <a href="/#contact" class="nav-link">Contact</a>

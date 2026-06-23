@@ -331,6 +331,7 @@
         <a href="#services" class="nav-link">Services</a>
         <a href="#testimonials" class="nav-link">Reviews</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <a href="/faq" class="nav-link">FAQs</a>
       </nav>
 
     </div>
@@ -363,6 +364,9 @@
           <a href="/collection" class="btn-gold">View Collection</a>
           <a href="#contact" class="btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.45);" onmouseenter="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';" onmouseleave="this.style.background='transparent'; this.style.color='#fff';">
             Book a Consultation
+          </a>
+          <a href="/faq" class="md:hidden btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.45);" onmouseenter="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';" onmouseleave="this.style.background='transparent'; this.style.color='#fff';">
+            FAQs
           </a>
         </div>
       </div>
