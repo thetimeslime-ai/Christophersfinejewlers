@@ -246,15 +246,11 @@
       .intro-strip { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .site-footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 
-      /* ── Hero image: rotate 90° to fill portrait viewport ── */
+      /* ── Hero image: rotate 180° on mobile ── */
       .hero-bg-img {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        width: 100vh !important;
-        height: 100vw !important;
-        max-width: none !important;
-        transform: translate(-50%, -50%) rotate(90deg) !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: rotate(180deg) !important;
         object-fit: cover !important;
         object-position: center center !important;
       }
