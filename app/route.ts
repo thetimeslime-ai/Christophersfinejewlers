@@ -260,6 +260,7 @@
       }
 
       /* ── Hero text ── */
+      .hero-tagline { color: rgba(255,255,255,0.9) !important; text-shadow: 0 1px 8px rgba(0,0,0,0.5); font-size: 0.72rem !important; }
       .hero-h1 { font-size: clamp(2.1rem, 9vw, 4rem) !important; line-height: 1.08 !important; }
       .hero-sub { max-width: 100% !important; font-size: 0.87rem !important; }
 
@@ -353,7 +354,7 @@
       <div class="max-w-xl">
         <img class="fade-up" src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers"
              style="width:200px; height:auto; margin-bottom:1.5rem; filter: drop-shadow(0 0 20px rgba(229,196,86,0.4)) drop-shadow(0 2px 10px rgba(0,0,0,0.5));" />
-        <p class="fade-up text-gold-400 font-sans mb-6" style="font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase;">Creating wearable art since 1979</p>
+        <p class="fade-up text-gold-400 font-sans mb-6 hero-tagline" style="font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase;">Creating wearable art since 1979</p>
         <h1 class="hero-h1 fade-up delay-1 font-serif text-white leading-none mb-6" style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight:300; letter-spacing:-0.02em; line-height: 1.05;">
           Crafted for<br /><em style="font-style:italic; color:#E5C456;">Every Moment</em><br />That Matters
         </h1>
