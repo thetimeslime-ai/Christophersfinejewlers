@@ -400,10 +400,10 @@
         <!-- Card 1 -->
         <div class="sr sr-d1 product-card group cursor-pointer">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Queen Ring.webp" alt="Queen Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/colorful necklace.webp" alt="Colorful Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
-          <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">The Queen Ring</h3>
+          <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Necklaces</p>
+          <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Rainbow Gemstone Necklace</h3>
         </div>
 
         <!-- Card 2 -->
