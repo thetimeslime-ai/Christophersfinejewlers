@@ -149,6 +149,13 @@
     .delay-2 { animation-delay: 0.3s; }
     .delay-3 { animation-delay: 0.45s; }
 
+    /* Hero jewel showcase */
+    @keyframes heroGlowPulse {
+      0%, 100% { opacity: 0.55; transform: scale(1); }
+      50%      { opacity: 0.85; transform: scale(1.06); }
+    }
+    .hero-jewel-glow { animation: heroGlowPulse 5s ease-in-out infinite; }
+
     /* Section heading underline */
     .section-heading {
       display: inline-block;
@@ -246,12 +253,6 @@
       .intro-strip { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .site-footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 
-      /* ── Hero image: show the full pendant, no crop ── */
-      .hero-bg-img {
-        object-fit: contain !important;
-        object-position: center center !important;
-      }
-
       /* ── Hero text ── */
       .hero-tagline { color: rgba(255,255,255,0.9) !important; text-shadow: 0 1px 8px rgba(0,0,0,0.5); font-size: 0.72rem !important; }
       .hero-logo { width: 140px !important; margin-bottom: 0.6rem !important; }
@@ -331,42 +332,62 @@
   </header>
 
   <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
-  <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center; background: #1a1a1a;">
-    <!-- Background image -->
-    <div class="absolute inset-0 z-0">
-      <!-- Blurred fill layer: extends the necklace's own dark backdrop to the edges -->
-      <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true"
-           style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; filter: blur(60px) brightness(0.55) saturate(1.1); transform: scale(1.2);" />
-      <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
-           style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position: center center;" />
-      <!-- Dark overlay -->
-      <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
-      <!-- Radial glow -->
-      <div style="position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(161,98,7,0.07) 0%, transparent 70%);"></div>
-    </div>
+  <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center; background: radial-gradient(ellipse 90% 70% at 25% 30%, #262019 0%, #181510 45%, #0e0c0a 100%);">
 
     <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
-      <div class="max-w-xl">
-        <img class="fade-up hero-logo" src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers"
-             style="width:200px; height:auto; margin-bottom:1.5rem; filter: drop-shadow(0 0 20px rgba(229,196,86,0.4)) drop-shadow(0 2px 10px rgba(0,0,0,0.5));" />
-        <p class="fade-up text-gold-400 font-sans mb-6 hero-tagline" style="font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase;">Creating wearable art since 1979</p>
-        <h1 class="hero-h1 fade-up delay-1 font-serif text-white leading-none mb-6" style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight:300; letter-spacing:-0.02em; line-height: 1.05;">
-          Crafted for<br /><em style="font-style:italic; color:#E5C456;">Every Moment</em><br />That Matters
-        </h1>
-        <p class="hero-sub fade-up delay-2 font-sans text-white/70 mb-10" style="font-size:0.9rem; line-height:1.75; max-width: 380px;">
-          Heirloom-quality fine jewelry — designed with intention, crafted with mastery, and worn for a lifetime.
-        </p>
-        <div class="hero-btns fade-up delay-3 flex flex-wrap gap-4">
-          <a href="/collection" class="btn-gold">View Collection</a>
-          <a href="#contact" class="btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.45);" onmouseenter="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';" onmouseleave="this.style.background='transparent'; this.style.color='#fff';">
-            Book a Consultation
-          </a>
-          <a href="/faq" class="md:hidden btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.45);" onmouseenter="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';" onmouseleave="this.style.background='transparent'; this.style.color='#fff';">
-            FAQs
-          </a>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Text -->
+        <div class="max-w-xl" style="min-width:0;">
+          <img class="fade-up hero-logo" src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers"
+               style="width:200px; height:auto; margin-bottom:1.5rem; filter: drop-shadow(0 0 20px rgba(229,196,86,0.4)) drop-shadow(0 2px 10px rgba(0,0,0,0.5));" />
+          <p class="fade-up text-gold-400 font-sans mb-6 hero-tagline" style="font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase;">Creating wearable art since 1979</p>
+          <h1 class="hero-h1 fade-up delay-1 font-serif text-white leading-none mb-6" style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight:300; letter-spacing:-0.02em; line-height: 1.05;">
+            Crafted for<br /><em style="font-style:italic; color:#E5C456;">Every Moment</em><br />That Matters
+          </h1>
+          <p class="hero-sub fade-up delay-2 font-sans text-white/70 mb-10" style="font-size:0.9rem; line-height:1.75; max-width: 380px;">
+            Heirloom-quality fine jewelry — designed with intention, crafted with mastery, and worn for a lifetime.
+          </p>
+
+          <!-- Jewel showcase (mobile / tablet) -->
+          <div class="flex lg:hidden fade-up delay-2 mb-10" style="position:relative; align-items:center; justify-content:center; min-height:250px; overflow:hidden;">
+            <div class="hero-jewel-glow" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:250px; height:250px; border-radius:50%; background: radial-gradient(circle, rgba(212,168,42,0.4) 0%, rgba(212,168,42,0.1) 45%, transparent 70%); filter: blur(8px);"></div>
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:220px; height:220px; border-radius:50%; border:1px solid rgba(229,196,86,0.2);"></div>
+            <div style="position:relative; width:190px; height:190px; border-radius:50%; overflow:hidden; box-shadow: 0 16px 36px rgba(0,0,0,0.55), 0 0 0 1px rgba(229,196,86,0.35), 0 0 24px rgba(212,168,42,0.18);">
+              <img src="/product-images/Mama's necklace.webp" alt="Handcrafted opal and diamond necklace by Christopher's Fine Jewelers"
+                   style="width:100%; height:100%; object-fit:cover; object-position: center 46%;" />
+            </div>
+          </div>
+
+          <div class="hero-btns fade-up delay-3 flex flex-wrap gap-4">
+            <a href="/collection" class="btn-gold">View Collection</a>
+            <a href="#contact" class="btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.45);" onmouseenter="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';" onmouseleave="this.style.background='transparent'; this.style.color='#fff';">
+              Book a Consultation
+            </a>
+            <a href="/faq" class="md:hidden btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.45);" onmouseenter="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';" onmouseleave="this.style.background='transparent'; this.style.color='#fff';">
+              FAQs
+            </a>
+          </div>
         </div>
+
+        <!-- Jewel showcase (desktop) -->
+        <div class="hidden lg:flex fade-up delay-2" style="position:relative; align-items:center; justify-content:center; min-height:560px; min-width:0;">
+          <div class="hero-jewel-glow" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:520px; height:520px; border-radius:50%; background: radial-gradient(circle, rgba(212,168,42,0.35) 0%, rgba(212,168,42,0.08) 45%, transparent 70%); filter: blur(10px);"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:460px; height:460px; border-radius:50%; border:1px solid rgba(229,196,86,0.22);"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:400px; height:400px; border-radius:50%; border:1px solid rgba(229,196,86,0.14);"></div>
+          <div style="position:relative; width:340px; height:340px; border-radius:50%; overflow:hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(229,196,86,0.35), 0 0 40px rgba(212,168,42,0.15);">
+            <img src="/product-images/Mama's necklace.webp" alt="Handcrafted opal and diamond necklace by Christopher's Fine Jewelers"
+                 style="width:100%; height:100%; object-fit:cover; object-position: center 46%;" />
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <!-- Scroll indicator -->
+    <a href="#collection" class="hidden md:block scroll-indicator" aria-hidden="true" style="position:absolute; bottom:32px; left:50%; transform:translateX(-50%);">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 7l6 6 6-6" stroke="rgba(255,255,255,0.5)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
 
   </section>
 
@@ -1000,6 +1021,7 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.sr, .sr-left, .sr-right').forEach(el => revealObserver.observe(el));
+  </script>
   </script>
 </body>
 </html>
