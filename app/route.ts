@@ -246,16 +246,9 @@
       .intro-strip { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .site-footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 
-      /* ── Hero image: rotate 90° to fill portrait viewport ── */
+      /* ── Hero image: show the full pendant, no crop ── */
       .hero-bg-img {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        width: 100vh !important;
-        height: 100vw !important;
-        max-width: none !important;
-        transform: translate(-50%, -50%) rotate(90deg) !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         object-position: center center !important;
       }
 
@@ -338,11 +331,11 @@
   </header>
 
   <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
-  <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center;">
+  <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center; background: #1a1a1a;">
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
       <img src="/product-images/colorful%20necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
-           style="width:100%; height:100%; object-fit:cover; object-position: center center;" />
+           style="width:100%; height:100%; object-fit:contain; object-position: center center;" />
       <!-- Dark overlay -->
       <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
       <!-- Radial glow -->
