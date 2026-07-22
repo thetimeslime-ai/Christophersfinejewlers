@@ -335,7 +335,7 @@
   <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center; background: #1a1a1a;">
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
-      <img src="/product-images/Mama's necklace.webp" alt="" aria-hidden="true" class="hero-bg-img"
+      <img src="/product-images/mama's necklace 2.webp" alt="" aria-hidden="true" class="hero-bg-img"
            style="width:100%; height:100%; object-fit:cover; object-position: center 30%; transform: scale(0.85);" />
       <!-- Dark overlay -->
       <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
