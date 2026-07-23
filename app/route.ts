@@ -246,12 +246,6 @@
       .intro-strip { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .site-footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 
-      /* ── Hero image: show the full pendant, no crop ── */
-      .hero-bg-img {
-        object-fit: contain !important;
-        object-position: center center !important;
-      }
-
       /* ── Hero text ── */
       .hero-tagline { color: rgba(255,255,255,0.9) !important; text-shadow: 0 1px 8px rgba(0,0,0,0.5); font-size: 0.72rem !important; }
       .hero-logo { width: 140px !important; margin-bottom: 0.6rem !important; }
