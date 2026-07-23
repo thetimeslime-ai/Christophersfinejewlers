@@ -330,7 +330,7 @@
     <div class="absolute inset-0 z-0">
       <!-- Blurred fill layer: extends the necklace's own dark backdrop to the edges -->
       <img src="/product-images/mama's necklace 2.webp" alt="" aria-hidden="true"
-           style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter: blur(50px) brightness(0.6) saturate(1.1); transform: scale(1.15);" />
+           style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter: blur(60px); transform: scale(1.15);" />
       <img src="/product-images/mama's necklace 2.webp" alt="" aria-hidden="true" class="hero-bg-img"
            style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position: center center;" />
       <!-- Dark overlay -->
