@@ -332,7 +332,7 @@
       <img src="/product-images/mama's necklace 2.webp" alt="" aria-hidden="true"
            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter: blur(50px) brightness(0.6) saturate(1.1); transform: scale(1.15);" />
       <img src="/product-images/mama's necklace 2.webp" alt="" aria-hidden="true" class="hero-bg-img"
-           style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center 30%; transform: scale(0.9);" />
+           style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position: center center;" />
       <!-- Dark overlay -->
       <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
       <!-- Radial glow -->
