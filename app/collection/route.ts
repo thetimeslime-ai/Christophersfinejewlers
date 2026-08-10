@@ -384,14 +384,6 @@ const HTML = `<!DOCTYPE html>
           <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Anniversary Diamond Ring</h3>
         </div>
 
-        <div class="sr sr-d2 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/mama anniversary ring 2.webp','Rings','Diamond Anniversary Band')">
-          <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/mama anniversary ring 2.webp" alt="Diamond Anniversary Band" class="card-img w-full h-full object-cover" loading="lazy" />
-          </div>
-          <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Diamond Anniversary Band</h3>
-        </div>
-
         <div class="sr sr-d3 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/herbalife ring.webp','Rings','Gold Crest Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
             <img src="/product-images/herbalife ring.webp" alt="Gold Crest Ring" class="card-img w-full h-full object-cover" loading="lazy" />
@@ -434,9 +426,9 @@ const HTML = `<!DOCTYPE html>
         </div>
 
         <!-- Earrings -->
-        <div class="sr sr-d4 product-card group cursor-pointer" data-category="earrings" onclick="openLightbox('/product-images/Colorful earrings.webp','Earrings','Boulder Opal Drops')">
+        <div class="sr sr-d4 product-card group cursor-pointer" data-category="earrings" onclick="openLightbox('/product-images/AI Rainbow earrings.JPG','Earrings','Boulder Opal Drops')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Colorful earrings.webp" alt="Boulder Opal Drops" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/AI Rainbow earrings.JPG" alt="Boulder Opal Drops" class="card-img w-full h-full object-contain" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Earrings</p>
           <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Boulder Opal Drops</h3>
