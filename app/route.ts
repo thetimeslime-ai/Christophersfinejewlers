@@ -354,12 +354,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Scroll cue -->
-    <div class="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2">
-      <span class="font-sans text-white/40" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;">Scroll</span>
-      <svg width="1" height="36" viewBox="0 0 1 36"><line x1="0.5" y1="0" x2="0.5" y2="36" stroke="rgba(255,255,255,0.3)" stroke-width="1"/></svg>
-    </div>
   </section>
 
   <!-- ══════════════════════════ INTRO STRIP ════════════════════════════ -->
