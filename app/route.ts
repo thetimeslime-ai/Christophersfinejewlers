@@ -171,13 +171,6 @@
     .form-input::placeholder { color: #a08f70; }
     .form-input:focus { border-bottom-color: #A16207; }
 
-    /* Scroll indicator */
-    @keyframes scrollBounce {
-      0%, 100% { transform: translateY(0); opacity: 1; }
-      50%       { transform: translateY(6px); opacity: 0.4; }
-    }
-    .scroll-indicator { animation: scrollBounce 1.8s ease-in-out infinite; }
-
     /* ── Testimonial columns ── */
     @keyframes scrollUp {
       0%   { transform: translateY(0); }
@@ -329,9 +322,9 @@
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
       <!-- Blurred fill layer: extends the necklace's own dark backdrop to the edges -->
-      <img src="/product-images/mama's necklace 2.webp" alt="" aria-hidden="true"
+      <img src="/product-images/Model with begginings pendent.JPEG" alt="" aria-hidden="true"
            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter: blur(60px); transform: scale(1.15);" />
-      <img src="/product-images/mama's necklace 2.webp" alt="" aria-hidden="true" class="hero-bg-img"
+      <img src="/product-images/Model with begginings pendent.JPEG" alt="" aria-hidden="true" class="hero-bg-img"
            style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position: center center;" />
       <!-- Dark overlay -->
       <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
@@ -363,7 +356,7 @@
     </div>
 
     <!-- Scroll cue -->
-    <div class="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 scroll-indicator">
+    <div class="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2">
       <span class="font-sans text-white/40" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;">Scroll</span>
       <svg width="1" height="36" viewBox="0 0 1 36"><line x1="0.5" y1="0" x2="0.5" y2="36" stroke="rgba(255,255,255,0.3)" stroke-width="1"/></svg>
     </div>

@@ -129,13 +129,6 @@
 .form-input::placeholder { color: #a08f70; }
 .form-input:focus { border-bottom-color: #A16207; }
 
-/* Scroll indicator */
-@keyframes scrollBounce {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50%       { transform: translateY(6px); opacity: 0.4; }
-}
-.scroll-indicator { animation: scrollBounce 1.8s ease-in-out infinite; }
-
 /* Testimonial columns */
 @keyframes scrollUp {
   0%   { transform: translateY(0); }

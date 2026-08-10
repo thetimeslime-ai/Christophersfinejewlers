@@ -171,12 +171,6 @@
     .form-input::placeholder { color: #a08f70; }
     .form-input:focus { border-bottom-color: #A16207; }
 
-    /* Scroll indicator */
-    @keyframes scrollBounce {
-      0%, 100% { transform: translateY(0); opacity: 1; }
-      50%       { transform: translateY(6px); opacity: 0.4; }
-    }
-    .scroll-indicator { animation: scrollBounce 1.8s ease-in-out infinite; }
 
     /* ── Testimonial columns ── */
     @keyframes scrollUp {
@@ -367,7 +361,7 @@
     </div>
 
     <!-- Scroll cue -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 scroll-indicator">
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
       <span class="font-sans text-white/40" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;">Scroll</span>
       <svg width="1" height="36" viewBox="0 0 1 36"><line x1="0.5" y1="0" x2="0.5" y2="36" stroke="rgba(255,255,255,0.3)" stroke-width="1"/></svg>
     </div>
