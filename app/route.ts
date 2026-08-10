@@ -322,10 +322,10 @@
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
       <!-- Blurred fill layer: extends the necklace's own dark backdrop to the edges -->
-      <img src="/product-images/Model with begginings pendent.JPEG" alt="" aria-hidden="true"
+      <img src="/product-images/Model with begginings pendent - sharpened.jpg" alt="" aria-hidden="true"
            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter: blur(60px); transform: scale(1.15);" />
-      <img src="/product-images/Model with begginings pendent.JPEG" alt="" aria-hidden="true" class="hero-bg-img"
-           style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position: center center;" />
+      <img src="/product-images/Model with begginings pendent - sharpened.jpg" alt="" aria-hidden="true" class="hero-bg-img"
+           style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position: center center; filter: contrast(1.05) saturate(1.05);" />
       <!-- Dark overlay -->
       <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
       <!-- Radial glow -->
