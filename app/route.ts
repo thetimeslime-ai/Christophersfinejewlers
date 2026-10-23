@@ -933,7 +933,7 @@
           <p class="font-sans text-white/30 mb-5" style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;">Contact</p>
           <ul class="space-y-3">
             <li class="font-sans text-white/50" style="font-size:0.82rem;">Sacramento, California</li>
-            <li><a href="mailto:Christophersfinejewlers@gmail.com" class="font-sans text-white/50 hover:text-gold-400 transition-colors" style="font-size:0.82rem;">Christophersfinejewlers@gmail.com</a></li>
+            <li><a href="mailto:Christophersfinejewelers@gmail.com" class="font-sans text-white/50 hover:text-gold-400 transition-colors" style="font-size:0.82rem;">Christophersfinejewelers@gmail.com</a></li>
             <li class="font-sans text-white/50" style="font-size:0.82rem;">By Appointment Only</li>
           </ul>
         </div>
@@ -965,7 +965,7 @@
       );
 
       window.location.href =
-        'mailto:Christophersfinejewlers@gmail.com?subject=' + subject + '&body=' + body;
+        'mailto:Christophersfinejewelers@gmail.com?subject=' + subject + '&body=' + body;
 
       form.style.display = 'none';
       document.getElementById('form-success').classList.remove('hidden');
