@@ -884,9 +884,12 @@
           <textarea id="message" name="message" placeholder="Tell us about your vision..." class="form-input" rows="4" style="resize:none;"></textarea>
         </div>
         <div class="text-center">
-          <button type="submit" class="btn-gold w-full sm:w-auto">Send Message</button>
+          <button type="submit" id="contact-submit-btn" class="btn-gold w-full sm:w-auto">Send Message</button>
         </div>
       </form>
+
+      <!-- Error message (hidden) -->
+      <div id="form-error" class="hidden mt-8 py-5 px-8 font-sans" style="border: 1px solid rgba(220,38,38,0.4); font-size:0.85rem; line-height:1.7; background: rgba(220,38,38,0.05); color:#b91c1c;"></div>
 
       <!-- Success message (hidden) -->
       <div id="form-success" class="hidden mt-8 py-5 px-8 font-sans text-charcoal/70" style="border: 1px solid rgba(161,98,7,0.3); font-size:0.85rem; line-height:1.7; background: rgba(161,98,7,0.04);">
@@ -959,27 +962,43 @@
       }
     });
 
-    // ── Contact form → opens email client with pre-filled inquiry ──
-    function handleSubmit(e) {
+    // ── Contact form → sends inquiry via server-side email API ──
+    async function handleSubmit(e) {
       e.preventDefault();
       const form = e.target;
-      const first   = (form.querySelector('#first_name').value  || '').trim();
-      const last    = (form.querySelector('#last_name').value   || '').trim();
-      const email   = (form.querySelector('#email').value       || '').trim();
-      const message = (form.querySelector('#message').value     || '').trim();
+      const errorBox  = document.getElementById('form-error');
+      const submitBtn = document.getElementById('contact-submit-btn');
+      errorBox.classList.add('hidden');
+      errorBox.textContent = '';
 
-      const subject = encodeURIComponent('Jewelry Inquiry – ' + first + ' ' + last);
-      const body    = encodeURIComponent(
-        'Name: '    + first + ' ' + last + '\n' +
-        'Email: '   + email + '\n\n' +
-        message
-      );
+      const first_name = (form.querySelector('#first_name').value || '').trim();
+      const last_name  = (form.querySelector('#last_name').value  || '').trim();
+      const email      = (form.querySelector('#email').value      || '').trim();
+      const message    = (form.querySelector('#message').value    || '').trim();
 
-      window.location.href =
-        'mailto:Christophersfinejewelers@gmail.com?subject=' + subject + '&body=' + body;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
 
-      form.style.display = 'none';
-      document.getElementById('form-success').classList.remove('hidden');
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ first_name, last_name, email, message }),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Something went wrong. Please try again.');
+        }
+
+        form.style.display = 'none';
+        document.getElementById('form-success').classList.remove('hidden');
+      } catch (err) {
+        errorBox.textContent = (err && err.message) || 'Something went wrong. Please try again, or email us directly.';
+        errorBox.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
     }
 
     // ── Scroll reveal ──
