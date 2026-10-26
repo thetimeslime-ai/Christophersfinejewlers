@@ -1,9 +1,16 @@
-﻿const HTML = `<!DOCTYPE html>
+﻿import { withAnalytics } from "@/lib/analytics";
+
+const HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christopher's Fine Jewelers</title>
+  <title>Custom Jewelry Designer | Christopher's Fine Jewelers</title>
+  <meta name="description" content="One-of-a-kind custom jewelry, engagement rings, heirloom redesigns and gemstone pieces, handcrafted by Christopher since 1979. Start your custom project." />
+  <link rel="canonical" href="https://www.christophersfinejewelers.com/" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -187,6 +194,21 @@
       border-radius: 20px;
       box-shadow: 0 4px 24px rgba(161,98,7,0.07), 0 1px 4px rgba(0,0,0,0.04);
       width: 300px;
+      flex-shrink: 0;
+    }
+    .t-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(161,98,7,0.35);
+      background: #FAF8F3;
+      color: #A16207;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
       flex-shrink: 0;
     }
     .t-fade-mask {
@@ -584,7 +606,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"I wanted to have a custom gold pendant necklace made with our ranch logo on the front and inscription on the back for my wife's birthday. Chris was totally enthusiastic about this project and helped lead me through all the various decisions which resulted in a very beautiful piece of jewelry which I fully expect will become a family heirloom. My wife teared up when she opened the beautiful necklace. I highly recommend him for your custom jewelry design."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=face" alt="Jim K." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">JK</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Jim K.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ranch Pendant</div>
@@ -594,7 +616,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Christopher was amazing to work with. My mom came to me asking for a 3 stone necklace with diamonds passed down from her family. All I can say is WOW. He is very responsive, very professional, and extremely punctual. I could not have asked for a better piece of jewelry for my mother."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face" alt="Thomas P." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">TP</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Thomas P.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">3-Stone Diamond Necklace</div>
@@ -604,7 +626,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Christopher was a delight to work with. He offered critical advice about color, size, and composition regarding my wife's necklace and was very prompt with communicating updates and information regarding timeline and process completion. His work is exceptional and I would be happy to choose him every time for my custom jewelry needs."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=80&h=80&fit=crop&crop=face" alt="Zachary C." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">ZC</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Zachary C.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Necklace</div>
@@ -614,7 +636,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"My dad always wore a gold signet with a ruby like stone, handed down from my grandfather. When my dad passed, I wanted to create a remembrance. Christopher was great to work with from start to finish. We created a ring that was like my dad's and also mine. I will treasure it always. Thank you Christopher!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" alt="Patricia D." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">PD</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patricia D.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Memorial Signet Ring</div>
@@ -625,7 +647,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"I wanted to have a custom gold pendant necklace made with our ranch logo on the front and inscription on the back for my wife's birthday. Chris was totally enthusiastic about this project and helped lead me through all the various decisions which resulted in a very beautiful piece of jewelry which I fully expect will become a family heirloom. My wife teared up when she opened the beautiful necklace. I highly recommend him for your custom jewelry design."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=face" alt="Jim K." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">JK</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Jim K.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ranch Pendant</div>
@@ -635,7 +657,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Christopher was amazing to work with. My mom came to me asking for a 3 stone necklace with diamonds passed down from her family. All I can say is WOW. He is very responsive, very professional, and extremely punctual. I could not have asked for a better piece of jewelry for my mother."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face" alt="Thomas P." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">TP</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Thomas P.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">3-Stone Diamond Necklace</div>
@@ -645,7 +667,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Christopher was a delight to work with. He offered critical advice about color, size, and composition regarding my wife's necklace and was very prompt with communicating updates and information regarding timeline and process completion. His work is exceptional and I would be happy to choose him every time for my custom jewelry needs."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=80&h=80&fit=crop&crop=face" alt="Zachary C." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">ZC</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Zachary C.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Necklace</div>
@@ -655,7 +677,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"My dad always wore a gold signet with a ruby like stone, handed down from my grandfather. When my dad passed, I wanted to create a remembrance. Christopher was great to work with from start to finish. We created a ring that was like my dad's and also mine. I will treasure it always. Thank you Christopher!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" alt="Patricia D." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">PD</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patricia D.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Memorial Signet Ring</div>
@@ -672,7 +694,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Oh, my gosh! It is SOOO pretty!" That was my wife's reaction when she opened the box with her new ring guard. Chris did an amazing job, taking the ring I sent him and customizing two pieces that completely complemented the original so they could be worn as a wedding band set. He is a master of his craft and the quality shows through in the work he produced. Thank you, Chris!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" alt="Mark V." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">MV</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mark V.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Guard · Alexandria, VA</div>
@@ -682,7 +704,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"He's been great to work with the whole time — easy to understand things and very professional. I would recommend him to any and everyone!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Tyler M." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">TM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Tyler M.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Verified Client</div>
@@ -692,7 +714,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Chris Reese is a true artist! He designed our engagement and wedding bands back in 1992 — unique pieces that drew compliments for decades. After losing touch, we recently found him again after my husband lost his wedding band. No jeweler in Maryland would take on the challenge, but Chris recreated the 18K band flawlessly and upgraded my engagement ring with a stunning GIA triple excellent natural diamond. If you want jewelry that's one-of-a-kind and unforgettable, Chris is your guy."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Susan B." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">SB</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Susan B.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Engagement &amp; Wedding Bands</div>
@@ -702,7 +724,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"I trusted Chris to make a very personal piece of jewelry for me and he came through perfectly as I knew he would. We worked together to create the concept of making a ring out of a very important diamond pin and he delivered exactly what I wanted. I cannot recommend his work enough."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Patrick S." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">PS</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patrick S.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Diamond Ring</div>
@@ -713,7 +735,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Oh, my gosh! It is SOOO pretty!" That was my wife's reaction when she opened the box with her new ring guard. Chris did an amazing job, taking the ring I sent him and customizing two pieces that completely complemented the original so they could be worn as a wedding band set. He is a master of his craft and the quality shows through in the work he produced. Thank you, Chris!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" alt="Mark V." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">MV</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mark V.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Guard · Alexandria, VA</div>
@@ -723,7 +745,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"He's been great to work with the whole time — easy to understand things and very professional. I would recommend him to any and everyone!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Tyler M." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">TM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Tyler M.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Verified Client</div>
@@ -733,7 +755,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Chris Reese is a true artist! He designed our engagement and wedding bands back in 1992 — unique pieces that drew compliments for decades. After losing touch, we recently found him again after my husband lost his wedding band. No jeweler in Maryland would take on the challenge, but Chris recreated the 18K band flawlessly and upgraded my engagement ring with a stunning GIA triple excellent natural diamond. If you want jewelry that's one-of-a-kind and unforgettable, Chris is your guy."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Susan B." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">SB</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Susan B.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Engagement &amp; Wedding Bands</div>
@@ -743,7 +765,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"I trusted Chris to make a very personal piece of jewelry for me and he came through perfectly as I knew he would. We worked together to create the concept of making a ring out of a very important diamond pin and he delivered exactly what I wanted. I cannot recommend his work enough."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Patrick S." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">PS</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patrick S.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Diamond Ring</div>
@@ -760,7 +782,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"I wish I could leave more stars because my experience with Chris was absolutely amazing! He really listened to me and came up with a gorgeous design. I'm wearing my new ring with so much joy — it's even better than I had hoped. Chris kept in touch with me every step of the way. He knows his craft and gave me remarkably accurate timing and pricing estimates. I can't wait for our next project!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Anita G." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">AG</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Anita G.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Design</div>
@@ -770,7 +792,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"My wife &amp; I have had multiple pieces made that have turned out exquisitely — well beyond our expectations. Christopher found the perfect opal for an 18k gold pendant for our granddaughter. For my wife he found a stunning tanzanite, cast the perfect ring, and set a ruby alongside three high-quality diamonds. He is now working on split opal drop earrings for her Christmas gift. I cannot recommend Christopher enough."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&h=80&fit=crop&crop=face" alt="Mike E." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">ME</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mike E.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Multiple Custom Pieces</div>
@@ -780,7 +802,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Working with Christopher was absolutely extraordinary — his attention to detail and his execution of our vision just blew us away. If you're looking for something really special and unique, Christopher is your man!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=80&h=80&fit=crop&crop=face" alt="James M." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">JM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">James M.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Jewelry</div>
@@ -790,7 +812,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Everything that Chris has done for me I absolutely love and love showing off. We have had 3 and now 4 pieces done by him — they are treasures."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=80&h=80&fit=crop&crop=face" alt="Chandra E." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">CE</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Chandra E.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Repeat Client · 4 Pieces</div>
@@ -801,7 +823,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"I wish I could leave more stars because my experience with Chris was absolutely amazing! He really listened to me and came up with a gorgeous design. I'm wearing my new ring with so much joy — it's even better than I had hoped. Chris kept in touch with me every step of the way. He knows his craft and gave me remarkably accurate timing and pricing estimates. I can't wait for our next project!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Anita G." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">AG</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Anita G.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Design</div>
@@ -811,7 +833,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"My wife &amp; I have had multiple pieces made that have turned out exquisitely — well beyond our expectations. Christopher found the perfect opal for an 18k gold pendant for our granddaughter. For my wife he found a stunning tanzanite, cast the perfect ring, and set a ruby alongside three high-quality diamonds. He is now working on split opal drop earrings for her Christmas gift. I cannot recommend Christopher enough."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&h=80&fit=crop&crop=face" alt="Mike E." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">ME</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mike E.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Multiple Custom Pieces</div>
@@ -821,7 +843,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Working with Christopher was absolutely extraordinary — his attention to detail and his execution of our vision just blew us away. If you're looking for something really special and unique, Christopher is your man!"</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=80&h=80&fit=crop&crop=face" alt="James M." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">JM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">James M.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Jewelry</div>
@@ -831,7 +853,7 @@
             <div class="t-card">
               <p class="font-serif text-charcoal/80" style="font-size:0.93rem; line-height:1.75;">"Everything that Chris has done for me I absolutely love and love showing off. We have had 3 and now 4 pieces done by him — they are treasures."</p>
               <div class="flex items-center gap-3 mt-5">
-                <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=80&h=80&fit=crop&crop=face" alt="Chandra E." style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+                <div class="t-avatar" aria-hidden="true">CE</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Chandra E.</div>
                   <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Repeat Client · 4 Pieces</div>
@@ -872,7 +894,12 @@
         </div>
         <div class="mb-8">
           <label for="message" class="font-sans text-charcoal/50 block mb-1" style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">How Can We Help?</label>
-          <textarea id="message" name="message" placeholder="Tell us about your vision..." class="form-input" rows="4" style="resize:none;"></textarea>
+          <textarea id="message" name="message" placeholder="Tell us about your vision..." class="form-input" rows="4" style="resize:none;" required maxlength="5000"></textarea>
+        </div>
+        <!-- Spam trap: hidden from people, often filled in by bots -->
+        <div aria-hidden="true" style="position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden;">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
         </div>
         <div class="text-center">
           <button type="submit" id="contact-submit-btn" class="btn-gold w-full sm:w-auto">Send Message</button>
@@ -964,6 +991,7 @@
       const last_name  = (form.querySelector('#last_name').value  || '').trim();
       const email      = (form.querySelector('#email').value      || '').trim();
       const message    = (form.querySelector('#message').value    || '').trim();
+      const website    = form.querySelector('#website').value || '';
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
@@ -972,7 +1000,7 @@
         const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ first_name, last_name, email, message }),
+          body: JSON.stringify({ first_name, last_name, email, message, website }),
         });
         const data = await res.json().catch(() => ({}));
 
@@ -982,6 +1010,8 @@
 
         form.style.display = 'none';
         document.getElementById('form-success').classList.remove('hidden');
+        // Fires only after the server confirms the inquiry was sent. No form contents are included.
+        if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { form_id: 'contact' });
       } catch (err) {
         errorBox.textContent = (err && err.message) || 'Something went wrong. Please try again, or email us directly.';
         errorBox.classList.remove('hidden');
@@ -1009,7 +1039,7 @@
 `;
 
 export async function GET() {
-  return new Response(HTML, {
+  return new Response(withAnalytics(HTML), {
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
   });
 }

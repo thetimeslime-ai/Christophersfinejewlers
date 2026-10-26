@@ -1,9 +1,16 @@
+import { withAnalytics } from "@/lib/analytics";
+
 const HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQs — Christopher's Fine Jewelers</title>
+  <title>Custom Jewelry FAQs | Christopher's Fine Jewelers</title>
+  <meta name="description" content="Answers about custom jewelry pricing, the design process, Christopher's training and background, and what to think through before your first consultation." />
+  <link rel="canonical" href="https://www.christophersfinejewelers.com/faq" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -462,7 +469,7 @@ const HTML = `<!DOCTYPE html>
 </html>`;
 
 export async function GET() {
-  return new Response(HTML, {
+  return new Response(withAnalytics(HTML), {
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
   });
 }
