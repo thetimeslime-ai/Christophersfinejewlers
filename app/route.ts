@@ -11,6 +11,56 @@ const HTML = `<!DOCTYPE html>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Christopher's Fine Jewelers" />
+  <meta property="og:title" content="Custom Jewelry Designer | Christopher's Fine Jewelers" />
+  <meta property="og:description" content="One-of-a-kind custom jewelry, engagement rings, heirloom redesigns and gemstone pieces, handcrafted by Christopher since 1979. Start your custom project." />
+  <meta property="og:url" content="https://www.christophersfinejewelers.com/" />
+  <meta property="og:image" content="https://www.christophersfinejewelers.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Handcrafted gemstone and diamond pendant by Christopher's Fine Jewelers" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.christophersfinejewelers.com/#organization",
+        "name": "Christopher's Fine Jewelers",
+        "url": "https://www.christophersfinejewelers.com/",
+        "logo": "https://www.christophersfinejewelers.com/brand-assets/christopher_logo_transparent_gold.png",
+        "description": "Custom fine jewelry designed and handcrafted by Christopher, including engagement rings, wedding bands, heirloom redesigns and estate jewelry buying.",
+        "email": "christophersfinejewelers@gmail.com",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "christophersfinejewelers@gmail.com",
+          "areaServed": "US",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://www.instagram.com/christophersfinejewelers",
+          "https://www.thumbtack.com/ca/roseville/handmade-jewelry/christophers-fine-jewelers/service/562173046186352640"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.christophersfinejewelers.com/#website",
+        "url": "https://www.christophersfinejewelers.com/",
+        "name": "Christopher's Fine Jewelers",
+        "publisher": {
+          "@id": "https://www.christophersfinejewelers.com/#organization"
+        }
+      }
+    ]
+  }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -303,6 +353,18 @@ const HTML = `<!DOCTYPE html>
       .mobile-show-more-btn { display: block; }
     }
 
+    /* Mobile menu */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease;
+    }
+    #mobile-menu.menu-open {
+      max-height: 360px;
+      opacity: 1;
+    }
+
     /* Disable stuck hover states on touch devices */
     @media (hover: none) {
       .product-card:hover            { transform: none !important; }
@@ -325,7 +387,7 @@ const HTML = `<!DOCTYPE html>
 
       <!-- Logo -->
       <a href="#top" class="flex-shrink-0 mx-auto md:mx-0">
-        <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto; filter: brightness(1.15) contrast(1.1) drop-shadow(0 1px 6px rgba(161,98,7,0.22));" />
+        <img src="/brand-assets/christopher_logo_transparent_gold.png" width="1024" height="1024" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto; filter: brightness(1.15) contrast(1.1) drop-shadow(0 1px 6px rgba(161,98,7,0.22));" />
       </a>
 
       <!-- Right nav -->
@@ -336,6 +398,24 @@ const HTML = `<!DOCTYPE html>
         <a href="/faq" class="nav-link">FAQs</a>
       </nav>
 
+      <!-- Mobile menu button -->
+      <button id="menu-button" class="md:hidden p-2 -mr-2 focus-visible:outline-none" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+          <line x1="0" y1="1" x2="22" y2="1" stroke="#A16207" stroke-width="1.5"/>
+          <line x1="0" y1="8" x2="22" y2="8" stroke="#A16207" stroke-width="1.5"/>
+          <line x1="0" y1="15" x2="22" y2="15" stroke="#A16207" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true" inert>
+      <a href="/collection" class="nav-link">Collection</a>
+      <a href="#about" class="nav-link">Our Story</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#testimonials" class="nav-link">Reviews</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="/faq" class="nav-link">FAQs</a>
     </div>
   </header>
 
@@ -343,7 +423,7 @@ const HTML = `<!DOCTYPE html>
   <section class="relative overflow-hidden grain" style="padding-top: 72px; min-height: 100vh; display: flex; align-items: center; background: #1a1a1a;">
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
-      <img src="/product-images/AI Model Golden Opal Pendant.png" alt="" aria-hidden="true" class="hero-bg-img"
+      <img src="/product-images/AI Model Golden Opal Pendant.png" width="1536" height="1024" alt="" aria-hidden="true" class="hero-bg-img"
            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center center;" />
       <!-- Dark overlay -->
       <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,26,26,0.78) 0%, rgba(26,26,26,0.45) 60%, rgba(161,98,7,0.08) 100%);"></div>
@@ -353,7 +433,7 @@ const HTML = `<!DOCTYPE html>
 
     <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
       <div class="max-w-xl">
-        <img class="fade-up hero-logo" src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers"
+        <img class="fade-up hero-logo" src="/brand-assets/christopher_logo_transparent_gold.png" width="1024" height="1024" alt="Christopher's Fine Jewelers"
              style="width:200px; height:auto; margin-bottom:1.5rem; filter: drop-shadow(0 0 20px rgba(229,196,86,0.4)) drop-shadow(0 2px 10px rgba(0,0,0,0.5));" />
         <p class="fade-up text-gold-400 font-sans mb-6 hero-tagline" style="font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase;">Creating wearable art since 1979</p>
         <h1 class="hero-h1 fade-up delay-1 font-serif text-white leading-none mb-6" style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight:300; letter-spacing:-0.02em; line-height: 1.05;">
@@ -401,7 +481,7 @@ const HTML = `<!DOCTYPE html>
         <!-- Card 1 -->
         <div class="sr sr-d1 product-card group cursor-pointer">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/colorful necklace.webp" alt="Colorful Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/colorful necklace.webp" width="1600" height="1571" alt="Colorful Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Necklaces</p>
           <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Rainbow Gemstone Necklace</h3>
@@ -410,7 +490,7 @@ const HTML = `<!DOCTYPE html>
         <!-- Card 2 -->
         <div class="sr sr-d2 product-card group cursor-pointer">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/big diamond ring.webp" alt="Diamond Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/big diamond ring.webp" width="1024" height="1820" alt="Diamond Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
           <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Heirloom Diamond Ring</h3>
@@ -419,7 +499,7 @@ const HTML = `<!DOCTYPE html>
         <!-- Card 3 -->
         <div class="sr sr-d3 product-card group cursor-pointer">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/emerald necklace.webp" alt="Emerald Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/emerald necklace.webp" width="1024" height="1820" alt="Emerald Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Necklaces</p>
           <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Emerald & Diamond Pendant</h3>
@@ -428,7 +508,7 @@ const HTML = `<!DOCTYPE html>
         <!-- Card 4 -->
         <div class="sr sr-d1 product-card group cursor-pointer mobile-hidden-card">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Colorful earrings.webp" alt="Opal Earrings" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/Colorful earrings.webp" width="1024" height="886" alt="Opal Earrings" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Earrings</p>
           <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Boulder Opal Drops</h3>
@@ -437,7 +517,7 @@ const HTML = `<!DOCTYPE html>
         <!-- Card 5 -->
         <div class="sr sr-d2 product-card group cursor-pointer mobile-hidden-card">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Blue Ring.webp" alt="Sapphire Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/Blue Ring.webp" width="1600" height="1311" alt="Sapphire Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
           <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Sapphire Wave Ring</h3>
@@ -446,7 +526,7 @@ const HTML = `<!DOCTYPE html>
         <!-- Card 6 -->
         <div class="sr sr-d3 product-card group cursor-pointer mobile-hidden-card">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/yellow diamond ring.webp" alt="Yellow Diamond Band" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/yellow diamond ring.webp" width="1515" height="1244" alt="Yellow Diamond Band" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
           <h3 class="font-serif text-charcoal" style="font-size:1.15rem; font-weight:400;">Canary Diamond Band</h3>
@@ -473,7 +553,7 @@ const HTML = `<!DOCTYPE html>
         <!-- Image side -->
         <div class="sr-left relative">
           <div class="overflow-hidden relative" style="aspect-ratio: 4/5;">
-            <img src="/product-images/Old Papa Photo.webp" alt="Jeweler at work" class="w-full h-full object-cover" loading="lazy" style="filter: sepia(0.12) contrast(1.05);" />
+            <img src="/product-images/Old Papa Photo.webp" width="960" height="720" alt="Jeweler at work" class="w-full h-full object-cover" loading="lazy" style="filter: sepia(0.12) contrast(1.05);" />
             <div style="position:absolute; inset:0; background: linear-gradient(to bottom, transparent 60%, rgba(161,98,7,0.06)); pointer-events:none;"></div>
           </div>
           <!-- Gold accent line -->
@@ -578,7 +658,7 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Image side -->
         <div class="sr-right overflow-hidden" style="aspect-ratio: 1/1; background:#f0ebe0;">
-          <img src="/product-images/Mama's necklace.webp" alt="Beginnings Necklace" class="w-full h-full object-cover" style="object-position: center top;" loading="lazy" />
+          <img src="/product-images/Mama's necklace.webp" width="1600" height="2133" alt="Beginnings Necklace" class="w-full h-full object-cover" style="object-position: center top;" loading="lazy" />
         </div>
 
       </div>
@@ -609,7 +689,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">JK</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Jim K.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ranch Pendant</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Ranch Pendant</div>
                 </div>
               </div>
             </div>
@@ -619,7 +699,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">TP</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Thomas P.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">3-Stone Diamond Necklace</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">3-Stone Diamond Necklace</div>
                 </div>
               </div>
             </div>
@@ -629,7 +709,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">ZC</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Zachary C.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Necklace</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Necklace</div>
                 </div>
               </div>
             </div>
@@ -639,7 +719,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">PD</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patricia D.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Memorial Signet Ring</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Memorial Signet Ring</div>
                 </div>
               </div>
             </div>
@@ -650,7 +730,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">JK</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Jim K.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ranch Pendant</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Ranch Pendant</div>
                 </div>
               </div>
             </div>
@@ -660,7 +740,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">TP</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Thomas P.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">3-Stone Diamond Necklace</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">3-Stone Diamond Necklace</div>
                 </div>
               </div>
             </div>
@@ -670,7 +750,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">ZC</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Zachary C.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Necklace</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Necklace</div>
                 </div>
               </div>
             </div>
@@ -680,7 +760,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">PD</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patricia D.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Memorial Signet Ring</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Memorial Signet Ring</div>
                 </div>
               </div>
             </div>
@@ -697,7 +777,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">MV</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mark V.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Guard · Alexandria, VA</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Ring Guard · Alexandria, VA</div>
                 </div>
               </div>
             </div>
@@ -707,7 +787,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">TM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Tyler M.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Verified Client</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Verified Client</div>
                 </div>
               </div>
             </div>
@@ -717,7 +797,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">SB</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Susan B.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Engagement &amp; Wedding Bands</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Engagement &amp; Wedding Bands</div>
                 </div>
               </div>
             </div>
@@ -727,7 +807,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">PS</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patrick S.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Diamond Ring</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Diamond Ring</div>
                 </div>
               </div>
             </div>
@@ -738,7 +818,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">MV</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mark V.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Guard · Alexandria, VA</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Ring Guard · Alexandria, VA</div>
                 </div>
               </div>
             </div>
@@ -748,7 +828,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">TM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Tyler M.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Verified Client</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Verified Client</div>
                 </div>
               </div>
             </div>
@@ -758,7 +838,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">SB</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Susan B.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Engagement &amp; Wedding Bands</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Engagement &amp; Wedding Bands</div>
                 </div>
               </div>
             </div>
@@ -768,7 +848,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">PS</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Patrick S.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Diamond Ring</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Diamond Ring</div>
                 </div>
               </div>
             </div>
@@ -785,7 +865,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">AG</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Anita G.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Design</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Ring Design</div>
                 </div>
               </div>
             </div>
@@ -795,7 +875,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">ME</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mike E.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Multiple Custom Pieces</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Multiple Custom Pieces</div>
                 </div>
               </div>
             </div>
@@ -805,7 +885,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">JM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">James M.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Jewelry</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Jewelry</div>
                 </div>
               </div>
             </div>
@@ -815,7 +895,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">CE</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Chandra E.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Repeat Client · 4 Pieces</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Repeat Client · 4 Pieces</div>
                 </div>
               </div>
             </div>
@@ -826,7 +906,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">AG</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Anita G.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Ring Design</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Ring Design</div>
                 </div>
               </div>
             </div>
@@ -836,7 +916,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">ME</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Mike E.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Multiple Custom Pieces</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Multiple Custom Pieces</div>
                 </div>
               </div>
             </div>
@@ -846,7 +926,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">JM</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">James M.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Custom Jewelry</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Custom Jewelry</div>
                 </div>
               </div>
             </div>
@@ -856,7 +936,7 @@ const HTML = `<!DOCTYPE html>
                 <div class="t-avatar" aria-hidden="true">CE</div>
                 <div>
                   <div class="font-sans text-charcoal" style="font-size:0.82rem;font-weight:500;letter-spacing:0.02em;">Chandra E.</div>
-                  <div class="font-sans text-charcoal/50" style="font-size:0.75rem;">Repeat Client · 4 Pieces</div>
+                  <div class="font-sans text-charcoal/60" style="font-size:0.75rem;">Repeat Client · 4 Pieces</div>
                 </div>
               </div>
             </div>
@@ -923,8 +1003,8 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Brand -->
         <div>
-          <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height:60px; width:auto; margin-bottom:16px; filter: brightness(1.1);" />
-          <p class="font-sans text-white/40" style="font-size:0.8rem; line-height:1.8;">Heirloom-quality fine jewelry,<br />crafted by hand with intention.</p>
+          <img src="/brand-assets/christopher_logo_transparent_gold.png" width="1024" height="1024" alt="Christopher's Fine Jewelers" style="height:60px; width:auto; margin-bottom:16px; filter: brightness(1.1);" />
+          <p class="font-sans text-white/50" style="font-size:0.8rem; line-height:1.8;">Heirloom-quality fine jewelry,<br />crafted by hand with intention.</p>
           <!-- Social links -->
           <div style="display:flex; gap:10px; margin-top:20px;">
             <a href="https://www.instagram.com/christophersfinejewelers" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
@@ -948,7 +1028,7 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Links -->
         <div>
-          <p class="font-sans text-white/30 mb-5" style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;">Navigate</p>
+          <p class="font-sans text-white/50 mb-5" style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;">Navigate</p>
           <ul class="space-y-3">
             <li><a href="#collection" class="font-sans text-white/50 hover:text-gold-400 transition-colors" style="font-size:0.82rem;">Collection</a></li>
             <li><a href="#about" class="font-sans text-white/50 hover:text-gold-400 transition-colors" style="font-size:0.82rem;">Our Story</a></li>
@@ -960,7 +1040,7 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Contact info -->
         <div>
-          <p class="font-sans text-white/30 mb-5" style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;">Contact</p>
+          <p class="font-sans text-white/50 mb-5" style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;">Contact</p>
           <ul class="space-y-3">
             <li class="font-sans text-white/50" style="font-size:0.82rem;">Sacramento, California</li>
             <li><a href="mailto:Christophersfinejewelers@gmail.com" class="font-sans text-white/50 hover:text-gold-400 transition-colors" style="font-size:0.82rem;">Christophersfinejewelers@gmail.com</a></li>
@@ -971,8 +1051,8 @@ const HTML = `<!DOCTYPE html>
       </div>
 
       <div style="border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-        <p class="font-sans text-white/25" style="font-size:0.72rem;">© 2026 Christopher's Fine Jewelers. All rights reserved.</p>
-        <p class="font-sans text-white/20" style="font-size:0.72rem; letter-spacing:0.1em;">FINE JEWELRY · SACRAMENTO, CA</p>
+        <p class="font-sans text-white/50" style="font-size:0.72rem;">© 2026 Christopher's Fine Jewelers. All rights reserved.</p>
+        <p class="font-sans text-white/50" style="font-size:0.72rem; letter-spacing:0.1em;">FINE JEWELRY · SACRAMENTO, CA</p>
       </div>
     </div>
   </footer>
@@ -1020,6 +1100,19 @@ const HTML = `<!DOCTYPE html>
       }
     }
 
+    // ── Mobile menu ──
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const open = menu.classList.toggle('menu-open');
+      // Keep the closed menu out of the tab order and the accessibility tree.
+      menu.setAttribute('aria-hidden', String(!open));
+      menu.inert = !open;
+      document.getElementById('menu-button').setAttribute('aria-expanded', String(open));
+    }
+    document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => {
+      if (document.getElementById('mobile-menu').classList.contains('menu-open')) toggleMenu();
+    }));
+
     // ── Scroll reveal (progressive enhancement) ──
     document.documentElement.classList.add('js-sr');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1032,7 +1125,6 @@ const HTML = `<!DOCTYPE html>
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.sr, .sr-left, .sr-right').forEach(el => revealObserver.observe(el));
-  </script>
   </script>
 </body>
 </html>

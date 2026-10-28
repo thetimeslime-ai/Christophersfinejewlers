@@ -11,6 +11,16 @@ const HTML = `<!DOCTYPE html>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Christopher's Fine Jewelers" />
+  <meta property="og:title" content="Custom Jewelry Collection | Christopher's Fine Jewelers" />
+  <meta property="og:description" content="Browse one-of-a-kind rings, necklaces, earrings and brooches handcrafted by Christopher, and see the kind of custom work possible for your own commission." />
+  <meta property="og:url" content="https://www.christophersfinejewelers.com/collection" />
+  <meta property="og:image" content="https://www.christophersfinejewelers.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Handcrafted gemstone and diamond pendant by Christopher's Fine Jewelers" />
+  <meta name="twitter:card" content="summary_large_image" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -256,7 +266,7 @@ const HTML = `<!DOCTYPE html>
 
       <!-- Logo -->
       <a href="/" class="flex-shrink-0 mx-auto md:mx-0">
-        <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto; filter: brightness(1.15) contrast(1.1) drop-shadow(0 1px 6px rgba(161,98,7,0.22));" />
+        <img src="/brand-assets/christopher_logo_transparent_gold.png" width="1024" height="1024" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto; filter: brightness(1.15) contrast(1.1) drop-shadow(0 1px 6px rgba(161,98,7,0.22));" />
       </a>
 
       <!-- Right nav -->
@@ -268,7 +278,7 @@ const HTML = `<!DOCTYPE html>
       </nav>
 
       <!-- Mobile menu button -->
-      <button class="md:hidden p-2 -mr-2 focus-visible:outline-none" aria-label="Menu" onclick="toggleMenu()">
+      <button id="menu-button" class="md:hidden p-2 -mr-2 focus-visible:outline-none" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">
         <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
           <line x1="0" y1="1" x2="22" y2="1" stroke="#A16207" stroke-width="1.5"/>
           <line x1="0" y1="8" x2="22" y2="8" stroke="#A16207" stroke-width="1.5"/>
@@ -278,7 +288,7 @@ const HTML = `<!DOCTYPE html>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true">
+    <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true" inert>
       <a href="/" class="nav-link">← Home</a>
       <a href="/collection" class="nav-link" style="color:#A16207;">Collection</a>
       <a href="/faq" class="nav-link">FAQs</a>
@@ -321,149 +331,149 @@ const HTML = `<!DOCTYPE html>
         <!-- Rings -->
         <div class="sr sr-d1 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/Queen Ring.webp','Rings','The Queen Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Queen Ring.webp" alt="The Queen Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/Queen Ring.webp" width="1024" height="1024" alt="The Queen Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">The Queen Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">The Queen Ring</h2>
         </div>
 
         <div class="sr sr-d2 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/big diamond ring.webp','Rings','Heirloom Diamond Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/big diamond ring.webp" alt="Heirloom Diamond Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/big diamond ring.webp" width="1024" height="1820" alt="Heirloom Diamond Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Heirloom Diamond Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Heirloom Diamond Ring</h2>
         </div>
 
         <div class="sr sr-d3 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/Blue Ring.webp','Rings','Sapphire Wave Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Blue Ring.webp" alt="Sapphire Wave Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/Blue Ring.webp" width="1600" height="1311" alt="Sapphire Wave Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Sapphire Wave Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Sapphire Wave Ring</h2>
         </div>
 
         <div class="sr sr-d4 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/yellow diamond ring.webp','Rings','Canary Diamond Band')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/yellow diamond ring.webp" alt="Canary Diamond Band" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/yellow diamond ring.webp" width="1515" height="1244" alt="Canary Diamond Band" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Canary Diamond Band</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Canary Diamond Band</h2>
         </div>
 
         <div class="sr sr-d1 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/DIamond and Blue Ring.webp','Rings','Diamond & Sapphire Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/DIamond and Blue Ring.webp" alt="Diamond and Blue Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/DIamond and Blue Ring.webp" width="1024" height="1365" alt="Diamond and Blue Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Diamond & Sapphire Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Diamond & Sapphire Ring</h2>
         </div>
 
         <div class="sr sr-d2 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/cool alien ring.webp','Rings','Sculptural Statement Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/cool alien ring.webp" alt="Sculptural Statement Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/cool alien ring.webp" width="1024" height="1820" alt="Sculptural Statement Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Sculptural Statement Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Sculptural Statement Ring</h2>
         </div>
 
         <div class="sr sr-d3 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/green orb ring.webp','Rings','Green Tourmaline Orb Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/green orb ring.webp" alt="Green Tourmaline Orb Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/green orb ring.webp" width="1024" height="1366" alt="Green Tourmaline Orb Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Green Tourmaline Orb Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Green Tourmaline Orb Ring</h2>
         </div>
 
         <div class="sr sr-d4 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/mama wedding ring.webp','Rings','Vintage Wedding Band')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/mama wedding ring.webp" alt="Vintage Wedding Band" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/mama wedding ring.webp" width="1200" height="1390" alt="Vintage Wedding Band" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Vintage Wedding Band</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Vintage Wedding Band</h2>
         </div>
 
         <div class="sr sr-d1 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/mama anniversary ring.webp','Rings','Anniversary Diamond Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/mama anniversary ring.webp" alt="Anniversary Diamond Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/mama anniversary ring.webp" width="1600" height="2133" alt="Anniversary Diamond Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Anniversary Diamond Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Anniversary Diamond Ring</h2>
         </div>
 
         <div class="sr sr-d3 product-card group cursor-pointer" data-category="rings" onclick="openLightbox('/product-images/herbalife ring.webp','Rings','Gold Crest Ring')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/herbalife ring.webp" alt="Gold Crest Ring" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/herbalife ring.webp" width="1024" height="1110" alt="Gold Crest Ring" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Rings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Gold Crest Ring</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Gold Crest Ring</h2>
         </div>
 
         <!-- Necklaces -->
         <div class="sr sr-d4 product-card group cursor-pointer" data-category="necklaces" onclick="openLightbox(\"/product-images/Mama's necklace.webp\",'Necklaces','Beginnings Necklace')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Mama's necklace.webp" alt="Beginnings Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/Mama's necklace.webp" width="1600" height="2133" alt="Beginnings Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Necklaces</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Beginnings Necklace</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Beginnings Necklace</h2>
         </div>
 
         <div class="sr sr-d1 product-card group cursor-pointer" data-category="necklaces" onclick="openLightbox('/product-images/emerald necklace.webp','Necklaces','Emerald & Diamond Pendant')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/emerald necklace.webp" alt="Emerald & Diamond Pendant" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/emerald necklace.webp" width="1024" height="1820" alt="Emerald & Diamond Pendant" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Necklaces</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Emerald & Diamond Pendant</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Emerald & Diamond Pendant</h2>
         </div>
 
         <div class="sr sr-d2 product-card group cursor-pointer" data-category="necklaces" onclick="openLightbox(\"/product-images/mama's necklace 2.webp\",'Necklaces','Cascade Diamond Necklace')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/mama's necklace 2.webp" alt="Cascade Diamond Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/mama's necklace 2.webp" width="1024" height="1215" alt="Cascade Diamond Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Necklaces</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Cascade Diamond Necklace</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Cascade Diamond Necklace</h2>
         </div>
 
         <div class="sr sr-d3 product-card group cursor-pointer" data-category="necklaces" onclick="openLightbox('/product-images/colorful necklace.webp','Necklaces','Rainbow Gemstone Necklace')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/colorful necklace.webp" alt="Rainbow Gemstone Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/colorful necklace.webp" width="1600" height="1571" alt="Rainbow Gemstone Necklace" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Necklaces</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Rainbow Gemstone Necklace</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Rainbow Gemstone Necklace</h2>
         </div>
 
         <!-- Earrings -->
         <div class="sr sr-d4 product-card group cursor-pointer" data-category="earrings" onclick="openLightbox('/product-images/AI Rainbow earrings.JPG','Earrings','Boulder Opal Drops')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/AI Rainbow earrings.JPG" alt="Boulder Opal Drops" class="card-img w-full h-full object-contain" loading="lazy" />
+            <img src="/product-images/AI Rainbow earrings.JPG" width="3792" height="3792" alt="Boulder Opal Drops" class="card-img w-full h-full object-contain" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Earrings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Boulder Opal Drops</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Boulder Opal Drops</h2>
         </div>
 
         <div class="sr sr-d1 product-card group cursor-pointer" data-category="earrings" onclick="openLightbox('/product-images/Emerald droop earings.webp','Earrings','Emerald Drop Earrings')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/Emerald droop earings.webp" alt="Emerald Drop Earrings" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/Emerald droop earings.webp" width="1252" height="768" alt="Emerald Drop Earrings" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Earrings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Emerald Drop Earrings</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Emerald Drop Earrings</h2>
         </div>
 
         <div class="sr sr-d2 product-card group cursor-pointer" data-category="earrings" onclick="openLightbox('/product-images/purple droop earings.webp','Earrings','Amethyst Drop Earrings')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/purple droop earings.webp" alt="Amethyst Drop Earrings" class="card-img w-full h-full object-cover" loading="lazy" />
+            <img src="/product-images/purple droop earings.webp" width="1600" height="1399" alt="Amethyst Drop Earrings" class="card-img w-full h-full object-cover" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Earrings</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Amethyst Drop Earrings</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Amethyst Drop Earrings</h2>
         </div>
 
         <!-- Brooches -->
         <div class="sr sr-d3 product-card group cursor-pointer" data-category="brooches" onclick="openLightbox('/product-images/gold ram.webp','Brooches','Gold Ram Brooch')">
           <div class="overflow-hidden mb-4" style="aspect-ratio: 4/5; background:#f0ebe0;">
-            <img src="/product-images/gold ram.webp" alt="Gold Ram Brooch" class="card-img w-full h-full object-cover object-top" loading="lazy" />
+            <img src="/product-images/gold ram.webp" width="1600" height="2133" alt="Gold Ram Brooch" class="card-img w-full h-full object-cover object-top" loading="lazy" />
           </div>
           <p class="font-sans text-gold-500 mb-1" style="font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase;">Brooches</p>
-          <h3 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Gold Ram Brooch</h3>
+          <h2 class="font-serif text-charcoal" style="font-size:1.1rem; font-weight:400;">Gold Ram Brooch</h2>
         </div>
 
       </div>
@@ -490,16 +500,20 @@ const HTML = `<!DOCTYPE html>
 
   <!-- ════════════════════════════ FOOTER ══════════════════════════════ -->
   <footer style="background: #1a1a1a; padding: 48px 32px; text-align: center;">
-    <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height: 44px; width: auto; opacity: 0.8; margin-bottom: 1.5rem; filter: brightness(1.1);" />
+    <img src="/brand-assets/christopher_logo_transparent_gold.png" width="1024" height="1024" alt="Christopher's Fine Jewelers" style="height: 44px; width: auto; opacity: 0.8; margin-bottom: 1.5rem; filter: brightness(1.1);" />
     <div class="divider mx-auto mb-5" style="background: linear-gradient(90deg, transparent, rgba(229,196,86,0.5), transparent);"></div>
-    <p class="font-sans text-white/30" style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;">Creating Wearable Art Since 1979</p>
+    <p class="font-sans text-white/50" style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;">Creating Wearable Art Since 1979</p>
   </footer>
 
   <script>
     // Mobile menu
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('menu-open');
+      const open = menu.classList.toggle('menu-open');
+      // Keep the closed menu out of the tab order and the accessibility tree.
+      menu.setAttribute('aria-hidden', String(!open));
+      menu.inert = !open;
+      document.getElementById('menu-button').setAttribute('aria-expanded', String(open));
     }
 
     // Scroll reveal

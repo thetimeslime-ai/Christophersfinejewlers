@@ -11,6 +11,16 @@ const HTML = `<!DOCTYPE html>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Christopher's Fine Jewelers" />
+  <meta property="og:title" content="Custom Jewelry FAQs | Christopher's Fine Jewelers" />
+  <meta property="og:description" content="Answers about custom jewelry pricing, the design process, Christopher's training and background, and what to think through before your first consultation." />
+  <meta property="og:url" content="https://www.christophersfinejewelers.com/faq" />
+  <meta property="og:image" content="https://www.christophersfinejewelers.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Handcrafted gemstone and diamond pendant by Christopher's Fine Jewelers" />
+  <meta name="twitter:card" content="summary_large_image" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -187,6 +197,7 @@ const HTML = `<!DOCTYPE html>
     .faq-icon::before { width: 14px; height: 1.5px; top: 9px; left: 3px; }
     .faq-icon::after  { width: 1.5px; height: 14px; top: 3px; left: 9px; }
     .faq-item.open .faq-icon::after { transform: rotate(90deg); opacity: 0; }
+    .faq-heading { margin: 0; font: inherit; }
     .faq-answer {
       overflow: hidden;
       max-height: 0;
@@ -244,7 +255,7 @@ const HTML = `<!DOCTYPE html>
 
       <!-- Logo -->
       <a href="/" class="flex-shrink-0 mx-auto md:mx-0">
-        <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto; filter: brightness(1.15) contrast(1.1) drop-shadow(0 1px 6px rgba(161,98,7,0.22));" />
+        <img src="/brand-assets/christopher_logo_transparent_gold.png" width="1024" height="1024" alt="Christopher's Fine Jewelers" style="height: 52px; width: auto; filter: brightness(1.15) contrast(1.1) drop-shadow(0 1px 6px rgba(161,98,7,0.22));" />
       </a>
 
       <!-- Right nav -->
@@ -255,7 +266,7 @@ const HTML = `<!DOCTYPE html>
       </nav>
 
       <!-- Mobile menu button -->
-      <button class="md:hidden p-2 -mr-2 focus-visible:outline-none" aria-label="Menu" onclick="toggleMenu()">
+      <button id="menu-button" class="md:hidden p-2 -mr-2 focus-visible:outline-none" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">
         <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
           <line x1="0" y1="1" x2="22" y2="1" stroke="#A16207" stroke-width="1.5"/>
           <line x1="0" y1="8" x2="22" y2="8" stroke="#A16207" stroke-width="1.5"/>
@@ -265,7 +276,7 @@ const HTML = `<!DOCTYPE html>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true">
+    <div id="mobile-menu" class="md:hidden px-4 pb-6 pt-2 flex flex-col gap-5" style="border-top: 1px solid rgba(161,98,7,0.12);" aria-hidden="true" inert>
       <a href="/" class="nav-link">← Home</a>
       <a href="/collection" class="nav-link">Collection</a>
       <a href="/faq" class="nav-link" style="color:#A16207;">FAQs</a>
@@ -297,10 +308,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q1 -->
         <div class="faq-item sr sr-d1">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">What should I know about your pricing?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">What should I know about your pricing?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>Every piece I create is a one-of-a-kind work of art, individually designed and hand-fabricated using the finest gold, platinum, and gemstones. Because no two designs are ever alike, pricing is determined by several factors — including the complexity of the design, metal weight, stone quality, and labor time.</p>
@@ -312,10 +325,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q2 -->
         <div class="faq-item sr sr-d2">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">What is your typical process for working with a new customer?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">What is your typical process for working with a new customer?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>Every custom piece begins with a personal consultation — either in person or virtually — where I learn about your vision, lifestyle, and the sentiment behind the piece. Together, we explore design ideas, metals, and gemstones that best express your style and purpose.</p>
@@ -328,10 +343,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q3 -->
         <div class="faq-item sr sr-d3">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">What education and training do you have that relates to your work?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">What education and training do you have that relates to your work?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>I hold a Master Jewelers Designation, my Diamond and Colored Stone Grading Certificates from the Gemological Institute of America (GIA), and of course, decades of hands-on experience that no classroom can replicate.</p>
@@ -341,10 +358,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q4 -->
         <div class="faq-item sr sr-d4">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">How did you get started in fine jewelry?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">How did you get started in fine jewelry?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>My journey in fine jewelry began in 1979, when I was working as a sales associate in a high-end custom jewelry boutique. There, I was offered the rare opportunity to apprentice under Mr. Robert Haseltine, who later became the Director of the Gemological Institute of America's Jewelry Arts Department.</p>
@@ -357,10 +376,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q5 -->
         <div class="faq-item sr sr-d1">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">What types of customers have you worked with?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">What types of customers have you worked with?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>I have worked with every type of client possible — from the newly engaged to elite Hollywood and entertainment celebrities. Every piece is given the same care and expertise they deserve.</p>
@@ -370,10 +391,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q6 -->
         <div class="faq-item sr sr-d2">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">Can you describe a recent project you're especially proud of?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">Can you describe a recent project you're especially proud of?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>I recently created a simple and yet elegant piece around an untreated gem-quality Alexandrite for a client who had been dreaming of owning a piece like this since her childhood. It truly was a pleasure to fulfill her dream.</p>
@@ -383,10 +406,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q7 -->
         <div class="faq-item sr sr-d3">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">What advice would you give a customer looking to commission custom jewelry?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">What advice would you give a customer looking to commission custom jewelry?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>When choosing a jeweler for a custom-designed piece, look beyond price — focus on experience, artistry, and trust. Custom jewelry is a collaboration, and you want to work with someone who not only understands fine craftsmanship, but also listens to your vision and guides you through the process with clarity and care.</p>
@@ -399,10 +424,12 @@ const HTML = `<!DOCTYPE html>
 
         <!-- Q8 -->
         <div class="faq-item sr sr-d4">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-question">What should I think through before my first consultation?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+          <h2 class="faq-heading">
+            <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="faq-question">What should I think through before my first consultation?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
           <div class="faq-answer" role="region">
             <div class="faq-answer-inner">
               <p>Before beginning a custom jewelry project, it helps to have a clear sense of what you'd like to create — both emotionally and aesthetically. Here are a few things to consider:</p>
@@ -432,15 +459,19 @@ const HTML = `<!DOCTYPE html>
 
   <!-- ════════════════════════════ FOOTER ══════════════════════════════ -->
   <footer style="background: #1a1a1a; padding: 48px 32px; text-align: center;">
-    <img src="/brand-assets/christopher_logo_transparent_gold.png" alt="Christopher's Fine Jewelers" style="height: 44px; width: auto; opacity: 0.8; margin-bottom: 1.5rem; filter: brightness(1.1);" />
+    <img src="/brand-assets/christopher_logo_transparent_gold.png" width="1024" height="1024" alt="Christopher's Fine Jewelers" style="height: 44px; width: auto; opacity: 0.8; margin-bottom: 1.5rem; filter: brightness(1.1);" />
     <div class="divider mx-auto mb-5" style="background: linear-gradient(90deg, transparent, rgba(229,196,86,0.5), transparent);"></div>
-    <p class="font-sans text-white/30" style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;">Creating Wearable Art Since 1979</p>
+    <p class="font-sans text-white/50" style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;">Creating Wearable Art Since 1979</p>
   </footer>
 
   <script>
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('menu-open');
+      const open = menu.classList.toggle('menu-open');
+      // Keep the closed menu out of the tab order and the accessibility tree.
+      menu.setAttribute('aria-hidden', String(!open));
+      menu.inert = !open;
+      document.getElementById('menu-button').setAttribute('aria-expanded', String(open));
     }
 
     function toggleFaq(btn) {
