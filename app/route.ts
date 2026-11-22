@@ -968,9 +968,15 @@ const HTML = `<!DOCTYPE html>
             <input id="last_name" name="last_name" type="text" placeholder="Smith" class="form-input" autocomplete="family-name" />
           </div>
         </div>
-        <div class="mb-8">
-          <label for="email" class="font-sans text-charcoal/50 block mb-1" style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">Email</label>
-          <input id="email" name="email" type="email" placeholder="jane@example.com" class="form-input" required autocomplete="email" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+          <div>
+            <label for="email" class="font-sans text-charcoal/50 block mb-1" style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">Email</label>
+            <input id="email" name="email" type="email" placeholder="jane@example.com" class="form-input" required autocomplete="email" />
+          </div>
+          <div>
+            <label for="phone" class="font-sans text-charcoal/50 block mb-1" style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">Phone (Optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" class="form-input" autocomplete="tel" maxlength="30" />
+          </div>
         </div>
         <div class="mb-8">
           <label for="message" class="font-sans text-charcoal/50 block mb-1" style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">How Can We Help?</label>
@@ -1070,6 +1076,7 @@ const HTML = `<!DOCTYPE html>
       const first_name = (form.querySelector('#first_name').value || '').trim();
       const last_name  = (form.querySelector('#last_name').value  || '').trim();
       const email      = (form.querySelector('#email').value      || '').trim();
+      const phone      = (form.querySelector('#phone').value      || '').trim();
       const message    = (form.querySelector('#message').value    || '').trim();
       const website    = form.querySelector('#website').value || '';
 
@@ -1080,7 +1087,7 @@ const HTML = `<!DOCTYPE html>
         const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ first_name, last_name, email, message, website }),
+          body: JSON.stringify({ first_name, last_name, email, phone, message, website }),
         });
         const data = await res.json().catch(() => ({}));
 

@@ -5,6 +5,9 @@ const CONTACT_EMAIL = "christophersfinejewelers@gmail.com";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_NAME_LENGTH = 100;
 const MAX_EMAIL_LENGTH = 254;
+// Optional; loose on purpose so international formats and extensions are accepted.
+const PHONE_PATTERN = /^[0-9+().\-\s#xX]{7,30}$/;
+const MAX_PHONE_LENGTH = 30;
 const MAX_MESSAGE_LENGTH = 5000;
 const SEND_FAILED_MESSAGE = `We couldn't send your message just now. Please try again, or email us at ${CONTACT_EMAIL}.`;
 
@@ -20,6 +23,7 @@ export async function POST(request: Request) {
   const firstName = String(body.first_name ?? "").replace(/\s+/g, " ").trim();
   const lastName = String(body.last_name ?? "").replace(/\s+/g, " ").trim();
   const email = String(body.email ?? "").trim();
+  const phone = String(body.phone ?? "").replace(/\s+/g, " ").trim();
   const message = String(body.message ?? "").trim();
 
   // Hidden spam-trap field: people never see it, so a value means a bot. Pretend success.
@@ -32,6 +36,9 @@ export async function POST(request: Request) {
   }
   if (email.length > MAX_EMAIL_LENGTH || !EMAIL_PATTERN.test(email)) {
     return NextResponse.json({ error: "Please provide a valid email address." }, { status: 400 });
+  }
+  if (phone && (phone.length > MAX_PHONE_LENGTH || !PHONE_PATTERN.test(phone))) {
+    return NextResponse.json({ error: "Please provide a valid phone number, or leave it blank." }, { status: 400 });
   }
   if (firstName.length > MAX_NAME_LENGTH || lastName.length > MAX_NAME_LENGTH || message.length > MAX_MESSAGE_LENGTH) {
     return NextResponse.json({ error: "Your message is too long. Please shorten it and try again." }, { status: 400 });
@@ -51,7 +58,7 @@ export async function POST(request: Request) {
     to: CONTACT_EMAIL,
     replyTo: email,
     subject: `Jewelry Inquiry – ${fullName}`,
-    text: `Name: ${fullName}\nEmail: ${email}\n\n${message}`,
+    text: `Name: ${fullName}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\n${message}`,
   });
 
   if (error) {
