@@ -974,7 +974,7 @@ const HTML = `<!DOCTYPE html>
             <input id="email" name="email" type="email" placeholder="jane@example.com" class="form-input" required autocomplete="email" />
           </div>
           <div>
-            <label for="phone" class="font-sans text-charcoal/50 block mb-1" style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">Phone (Optional)</label>
+            <label for="phone" class="font-sans text-charcoal/50 block mb-1" style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">Phone</label>
             <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" class="form-input" autocomplete="tel" maxlength="30" />
           </div>
         </div>
